@@ -1,0 +1,58 @@
+<!--
+  Copyright © 2016 Hilscher Gesellschaft für Systemautomation mbH
+
+  Licensed under the Hilscher netIOT License.
+
+  See Hilscher_netIOT_License.txt
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('netiot-io-led',{
+        category: 'output',
+        color: '#a6bbcf',
+        paletteLabel: 'LED',
+        defaults: {
+            name: {value:""},
+            led:  {value:"", required: true},
+        },
+        inputs:1,
+        outputs:0,
+        icon: "arrow.png",
+        align: "right",
+        label: function() {
+            return this.name||"LED: " + this.led;
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        },
+        oneditprepare: function() {
+            var lednow = this.led;
+            $.getJSON('netiot-io-get-led-list/'+this.id,function(data) {
+		            $("#node-input-led").empty();
+                $.each(JSON.parse(data), function(i, pin) {
+                		$("#node-input-led").append($('<option></option>')
+              		    .attr("value", pin)
+              		    .text(pin));
+                });
+                $('#node-input-led').val(lednow);
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="netiot-io-led">
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-circle"></i> Led</label>
+        <select type="text" id="node-input-led" style="width: 250px;">
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" style="width: 250px;">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="netiot-io-led">
+    <p>A LED on netIOT based Edge Gateways.</p>
+    <p>The <code>msg.payload</code> should contain the value 0 or 1.</p>
+</script>

@@ -1,0 +1,36 @@
+{
+  "name": "netPI-nodered-user-leds",
+  "version": "1.0.0",
+  "description": "A Node-RED node to control the user LEDs of netPI",
+  "dependencies": {
+  },
+  "main": "netiot-io-led.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node-red",
+    "hilscher",
+    "netpi",
+    "led"
+  ],
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/Hilscher/netPI-nodered-user-leds"
+  },
+  "node-red": {
+    "nodes": {
+      "netiot-io-led": "netiot-io-led.js"
+    }
+  },
+  "author": {
+    "name": "hilschernetpi",
+    "email": "netpi@hilscher.com",
+    "url": "https://github.com/Hilscher/netPI-nodered-user-leds"
+  },
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": ""
+  }
+}
