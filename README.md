@@ -6,7 +6,7 @@ Made for [netPI](https://www.netiot.com/netpi/), the Raspberry Pi 3B Architectur
 
 The image provided hereunder deploys a container with installed Debian, Node-RED and LED node to control the two orange user LEDs of a netPI.
 
-Base of this image builds the latest version of [debian:stretch](https://hub.docker.com/r/resin/armv7hf-debian/tags/) with installed Internet of Things flow-based programming web-tool [Node-RED](https://nodered.org/) and one extra node *LED* providing access to the two LEDs.
+Base of this image builds [debian](https://www.balena.io/docs/reference/base-images/base-images/) with installed Internet of Things flow-based programming web-tool [Node-RED](https://nodered.org/) and one extra node *LED* providing access to the two LEDs.
 
 #### Container prerequisites
 
